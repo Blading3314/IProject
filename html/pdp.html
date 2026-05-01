@@ -3,9 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Product Details Page</title>
+
+    <link type="text/css" href="../css/pdp.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="../js/pdp.js"></script>
 </head>
 <body>
-    
+  <header>
+    <section class="header-left">
+      <a href="index.html" class="logo">
+        <img src="" alt="Project Logo">
+        <span>Project</span>
+      </a>
+    </section>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</li>
+        <li><a href="products.html">Products</a>
+        <li><a href="about.html">About</li>
+      </ul>
+    </nav>
+
+    <section class="header-search">
+      <input type="search" placeholder="Search product" id="search-input">
+      <button id="searthButton">Search</button>
+      <div id="search-dropdown"></div>
+    </section>
+
+    <section class="header-right">
+      <a href="cart.html">
+        <span id="card-count">0</span>
+      </a>
+      <a href="login.html">Login</a>
+    </section>
+  </header>
+
+  <main>
+    <section class="product-left">
+        <img id="product-image" src="" alt="Product Image">
+    </section>
+
+    <section class="product-top-right">
+        <h1 id="product-title">Title</h1>
+        <h4 id="product-description">Description</h4>
+        <h4 id="product-price">Price</h4>
+        <h4 id="product-sku">Stock-Keeping Unit</h4>
+        <h4 id="product-availability">Availabilty</h4>
+    </section>
+
+    <section class="product-bottom-right">
+        <label for="product-quantity">Quantity</label>
+        <input type="number" id="product-quantity" value="1" min="1">
+        <button id="AddToCart">Add to cart</button>
+    </section>
+
+    <section class="product-bottom">
+        <h1 id="product-recommendation">YOU MAY ALSO LIKE</h1>
+        <div class="carousel-slides"></div>
+            <button id="carouselPreviousButton">Previous</button>
+            <button id="carouselNextButton">Next</button>
+    </section>
+  </main>
+
+  <footer>
+    <section class="footer-section">
+      <h4>Shop by Category</h4>
+      <ul id="footer-categories">
+        <li><a href="products.html">Headwear</a></li>
+        <li><a href="products.html">Tops</a></li>
+        <li><a href="products.html">Bottoms</a></li>
+        <li><a href="products.html">Footwear</a></li>
+      </ul>
+    </section>
+
+    <section class="footer-contact">
+      <h4>Contact Us</h4>
+      <p></p>
+      <p></p>
+    </section>
+
+    <section class="footer-newsletter">
+      <h4>Join our Newsletter</h4>
+      <input type="email" placeholder="Your email address">
+      <button>Subscribe</button>
+    </section>
+
+    <section class="footer-socials">
+      <h4>Follow Us</h4>
+      <a href="#">
+        <img src="" alt="facebook-icon">
+      </a>
+      <a href="#">
+        <img src="" alt="twitter-icon">
+      </a>
+      <a href="#">
+        <img src="" alt="instagram-icon">
+      </a>
+    </section>
+  </footer>
 </body>
 </html>
