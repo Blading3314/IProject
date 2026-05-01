@@ -1,11 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Product Listings Prage</title>
+    <link type="text/css" href="../css/plp.css" rel="stylesheet">
+    <link type="text/css" href="/css/header.css" rel="stylesheet">
+    <link type="text/css" href="/css/footer.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="../js/plp.js"></script>
+    <script type="text/javascript" src="/js/header.js"></script>
+    <script type="text/javascript" src="/js/footer.js"></script>
 </head>
+
 <body>
-    
+    <header>
+        <section class="header-left">
+            <a href="index.html" class="logo">
+                <img src="" alt="Project Logo">
+                <span>Project</span>
+            </a>
+        </section>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</li>
+                <li><a href="/html/plp.html">Products</a>
+                <li><a href="/html/about.html">About</li>
+            </ul>
+        </nav>
+
+        <section class="header-search">
+            <input type="search" placeholder="Search product" id="search-input">
+            <button id="searthButton">Search</button>
+            <div id="search-dropdown"></div>
+        </section>
+
+        <section class="header-right">
+            <a href="/html/cart.html">
+                <span id="card-count">0</span>
+            </a>
+            <a href="/html/login.html">Login</a>
+        </section>
+    </header>
+
+    <main>
+        <section>
+            <section class="product-listings">
+                <section id="product-list"></section>
+                <section id="product-pagination"></section>
+            </section>
+
+            <aside>
+                <h3>Filters</h3>
+                <label for="category-filter">Category</label>
+                <select id="category-filter">
+                    <option>All Categories</option>
+                    <option>Headwear</option>
+                    <option>Tops</option>
+                    <option>Bottoms</option>
+                    <option>Footwear</option>
+                </select>
+
+                <label for="price-sort">Sort By Price</label>
+                <select id="price-sort">
+                    <option>Default</option>
+                    <option>Low-High</option>
+                    <option>High-Low</option>
+                </select>
+
+                <label for="price-range">Max Price</label>
+                <input type="range" id="price-range" min="0" max="" value="">
+            </aside>
+        </section>
+    </main>
+
+    <footer>
+        <section class="footer-section">
+            <h4>Shop by Category</h4>
+            <ul id="footer-categories">
+                <li><a href="/html/plp.html">Headwear</a></li>
+                <li><a href="/html/plp.html">Tops</a></li>
+                <li><a href="/html/plp.html">Bottoms</a></li>
+                <li><a href="/html/plp.html">Footwear</a></li>
+            </ul>
+        </section>
+
+        <section class="footer-contact">
+            <h4>Contact Us</h4>
+            <p></p>
+            <p></p>
+        </section>
+
+        <section class="footer-newsletter">
+            <h4>Join our Newsletter</h4>
+            <input type="email" placeholder="Your email address">
+            <button>Subscribe</button>
+        </section>
+
+        <section class="footer-socials">
+            <h4>Follow Us</h4>
+            <a href="#">
+                <img src="" alt="facebook-icon">
+            </a>
+            <a href="#">
+                <img src="" alt="twitter-icon">
+            </a>
+            <a href="#">
+                <img src="" alt="instagram-icon">
+            </a>
+        </section>
+    </footer>
 </body>
+
 </html>

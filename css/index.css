@@ -10,29 +10,6 @@ body {
   color: #000000;
 }
 
-header {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #ffffff;
-  padding-bottom: 50px;
-  border-bottom: 1px solid #000000;
-  position: sticky;
-  top: 0;
-}
-
-header ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  gap: 20px;
-  list-style: none;
-  border: 1px solid #000000;
-}
-
 main {
   padding: 10px 20px;
 }
@@ -78,13 +55,4 @@ main ul {
   list-style: none;
   padding-bottom: 100px;
   border: 1px solid #000000;
-}
-
-footer {
-  display: flex;
-  flex-wrap: wrap;           
-  justify-content: space-between;
-  align-items: flex-start;
-  border: 1px solid #000000;
-  padding: 20px 20px 20px 20px;
 }

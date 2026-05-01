@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #000000;
+    position: sticky;
+    top: 0;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid #000000;
+}
+
+main section {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 20px;
+  padding: 24px;
+  max-width: 960px;
+  margin: 0 auto;
+  align-items: flex-start;
+  
+  border: 1px solid #000000;
+}
+
+main section aside {
+  width: 220px;
+  flex-shrink: 0;
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 12px;
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+}
+
+.product-listings {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+header ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    border: 1px solid #000000;
+}
+
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    border: 1px solid #000000;
+    padding: 20px 20px 20px 20px;
+}

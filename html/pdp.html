@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Details Page</title>
 
-    <link type="text/css" href="../css/pdp.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script type="text/javascript" src="../js/pdp.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details Page</title>
+
+  <link type="text/css" href="../css/pdp.css" rel="stylesheet">
+  <link type="text/css" href="/css/header.css" rel="stylesheet">
+  <link type="text/css" href="/css/footer.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script type="text/javascript" src="../js/pdp.js"></script>
+  <script type="text/javascript" src="/js/header.js"></script>
+  <script type="text/javascript" src="/js/footer.js"></script>
 </head>
+
 <body>
   <header>
     <section class="header-left">
@@ -21,8 +27,8 @@
     <nav>
       <ul>
         <li><a href="index.html">Home</li>
-        <li><a href="products.html">Products</a>
-        <li><a href="about.html">About</li>
+        <li><a href="/html/plp.html">Products</a>
+        <li><a href="/html/about.html">About</li>
       </ul>
     </nav>
 
@@ -33,37 +39,37 @@
     </section>
 
     <section class="header-right">
-      <a href="cart.html">
+      <a href="/html/cart.html">
         <span id="card-count">0</span>
       </a>
-      <a href="login.html">Login</a>
+      <a href="/html/login.html">Login</a>
     </section>
   </header>
 
   <main>
     <section class="product-left">
-        <img id="product-image" src="" alt="Product Image">
+      <img id="product-image" src="" alt="Product Image">
     </section>
 
     <section class="product-top-right">
-        <h1 id="product-title">Title</h1>
-        <h4 id="product-description">Description</h4>
-        <h4 id="product-price">Price</h4>
-        <h4 id="product-sku">Stock-Keeping Unit</h4>
-        <h4 id="product-availability">Availabilty</h4>
+      <h1 id="product-title">Title</h1>
+      <h4 id="product-description">Description</h4>
+      <h4 id="product-price">Price</h4>
+      <h4 id="product-sku">Stock-Keeping Unit</h4>
+      <h4 id="product-availability">Availabilty</h4>
     </section>
 
     <section class="product-bottom-right">
-        <label for="product-quantity">Quantity</label>
-        <input type="number" id="product-quantity" value="1" min="1">
-        <button id="AddToCart">Add to cart</button>
+      <label for="product-quantity">Quantity</label>
+      <input type="number" id="product-quantity" value="1" min="1">
+      <button id="AddToCart">Add to cart</button>
     </section>
 
     <section class="product-bottom">
-        <h1 id="product-recommendation">YOU MAY ALSO LIKE</h1>
-        <div class="carousel-slides"></div>
-            <button id="carouselPreviousButton">Previous</button>
-            <button id="carouselNextButton">Next</button>
+      <h1 id="product-recommendation">YOU MAY ALSO LIKE</h1>
+      <div class="carousel-slides"></div>
+      <button id="carouselPreviousButton">Previous</button>
+      <button id="carouselNextButton">Next</button>
     </section>
   </main>
 
@@ -71,10 +77,10 @@
     <section class="footer-section">
       <h4>Shop by Category</h4>
       <ul id="footer-categories">
-        <li><a href="products.html">Headwear</a></li>
-        <li><a href="products.html">Tops</a></li>
-        <li><a href="products.html">Bottoms</a></li>
-        <li><a href="products.html">Footwear</a></li>
+        <li><a href="/html/plp.html">Headwear</a></li>
+        <li><a href="/html/plp.html">Tops</a></li>
+        <li><a href="/html/plp.html">Bottoms</a></li>
+        <li><a href="/html/plp.html">Footwear</a></li>
       </ul>
     </section>
 
@@ -104,4 +110,5 @@
     </section>
   </footer>
 </body>
+
 </html>
