@@ -8,92 +8,67 @@
 body {
     background-color: #ffffff;
     color: #000000;
-}
-
-header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #ffffff;
-    padding-bottom: 50px;
-    border-bottom: 1px solid #000000;
-    position: sticky;
-    top: 0;
-}
-
-header ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    gap: 20px;
-    list-style: none;
-    border: 1px solid #000000;
+    justify-self: center;
 }
 
 main {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto;
-    gap: 16px;
-    padding: 16px;
-    border: 1px solid #000000;
-    padding: 20px 20px 20px 20px;
-}
-
-main .product-left {
-    grid-column: 1;
-    grid-row: 1 / 3;
-    border: 1px solid #000000;
-    padding: 20px 20px 20px 20px;
-}
-
-main .product-left img {
-    width: 100%;
+    width: 1200px;
     height: 100%;
-    object-fit: cover;
-    display: block;
-    border-radius: 12px;
+    max-width: 100%;
+    max-height: 100vh;
+    justify-items: center;
 }
 
-main .product-top-right {
-    border: 1px solid #000000;
-    padding: 20px 20px 20px 20px;
-    grid-column: 2;
-    grid-row: 1;
-    padding: 16px;
-    border: 1px solid #e0e0e0;
-    border-radius: 12px;
+.product-top {
+    display: flex;
+    justify-content: center;
+    border: 2px solid red;
 }
 
-main .product-bottom-right {
-    grid-column: 2;
-    grid-row: 2;
-    padding: 16px;
-    border: 1px solid #e0e0e0;
-    border-radius: 12px;
+.product-left {
+    width: 400px;
+    height: 400px;
+}
+
+.product-right {
+    width: 400px;
+    height: 400px;
+}
+
+.product-bottom {
+    text-align: center;
+}
+
+.carousel-slides {
+    margin: 0px auto;
+    width: 800px;
+    border: 5px solid red;
+    display: flex;
+    overflow-x: hidden;
+}
+
+.carousel-group {
     display: flex;
     align-items: center;
-    gap: 12px;
-    border: 1px solid #000000;
-    padding: 20px 20px 20px 20px;
+    justify-content: center;
+    gap: 1em;
+    animation: spin 5s infinite linear;
+    padding-right: 1em;
 }
 
-main .product-bottom {
-    grid-column: 1 / -1;
-    grid-row: 3;
-    padding: 16px;
-    border: 1px solid #000000;
-    padding: 20px 20px 20px 20px;
+.carousel-card {
+    flex: 0 0 3em;
+    height: 3em;
+    padding: 1em;
+    background: cornflowerblue;
+    font-size: 3rem;
+    border-radius: .2em;
+    text-align: center;
+    align-content: center;
+    flex-direction: row;
 }
 
-footer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
-    border: 1px solid #000000;
-    padding: 20px 20px 20px 20px;
+@keyframes spin {
+    from {translate: 0;}
+    to {translate: -100%;}
 }

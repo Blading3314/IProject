@@ -9,7 +9,7 @@
     <link type="text/css" href="/css/header.css" rel="stylesheet">
     <link type="text/css" href="/css/footer.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script type="text/javascript" src="../js/plp.js"></script>
+    <script type="text/javascript" src="../js/plp.js" defer></script>
     <script type="text/javascript" src="/js/header.js"></script>
     <script type="text/javascript" src="/js/footer.js"></script>
 </head>
@@ -47,11 +47,6 @@
 
     <main>
         <section>
-            <section class="product-listings">
-                <section id="product-list"></section>
-                <section id="product-pagination"></section>
-            </section>
-
             <aside>
                 <h3>Filters</h3>
                 <label for="category-filter">Category</label>
@@ -73,6 +68,10 @@
                 <label for="price-range">Max Price</label>
                 <input type="range" id="price-range" min="0" max="" value="">
             </aside>
+            <section class="product-listings">
+                <section id="product-list"></section>
+                <section id="product-pagination"></section>
+            </section>
         </section>
     </main>
 
