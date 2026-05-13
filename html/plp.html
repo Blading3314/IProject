@@ -2,16 +2,16 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Listings Prage</title>
-    <link type="text/css" href="../css/plp.css" rel="stylesheet">
-    <link type="text/css" href="/css/header.css" rel="stylesheet">
-    <link type="text/css" href="/css/footer.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script type="text/javascript" src="../js/plp.js" defer></script>
-    <script type="text/javascript" src="/js/header.js"></script>
-    <script type="text/javascript" src="/js/footer.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Listings Prage</title>
+  <link type="text/css" href="../css/plp.css" rel="stylesheet">
+  <link type="text/css" href="/css/header.css" rel="stylesheet">
+  <link type="text/css" href="/css/footer.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script type="text/javascript" src="../js/plp.js" defer></script>
+  <script type="text/javascript" src="/js/header.js"></script>
+  <script type="text/javascript" src="/js/footer.js"></script>
 </head>
 
 <body>
@@ -33,8 +33,8 @@
       </button>
       <div id="search-dropdown" class="search-bar"></div>
       <a href="cart.html">
-       <img class="icon-cart" src="../images/icon-cart.png">
-       <span id="cart-count"></span>
+        <img class="icon-cart" src="../images/icon-cart.png">
+        <span id="cart-count"></span>
       </a>
       <a href="login.html">
         <img class="icon-account" src="../images/icon-account.png">
@@ -42,65 +42,67 @@
     </hgroup>
   </header>
 
-    <main>
-        <section>
-            <aside>
-                <h3>Filters</h3>
-                <label for="category-filter">Category</label>
-                <select id="category-filter">
-                    <option>All Categories</option>
-                    <option>Headwear</option>
-                    <option>Tops</option>
-                    <option>Bottoms</option>
-                    <option>Footwear</option>
-                </select>
+  <main class="main-container">
+    <h1>Product List</h1>
+    <div class="product-container">
+      <aside class="filter-group">
+        <h3>Filters</h3>
+        <label for="category-filter">Category</label>
+        <select id="category-filter">
+          <option>All Categories</option>
+          <option>Men's Clothing</option>
+          <option>Women's Clothing</option>
+          <option>Jewelery</option>
+          <option>Electronics</option>
+        </select>
 
-                <label for="price-sort">Sort By Price</label>
-                <select id="price-sort">
-                    <option>Default</option>
-                    <option>Low-High</option>
-                    <option>High-Low</option>
-                </select>
+        <label for="price-sort">Sort By Price</label>
+        <select id="price-sort">
+          <option>Default</option>
+          <option>Low-High</option>
+          <option>High-Low</option>
+        </select>
 
-                <label id="price-range-label" for="price-range">Max Price</label>
-                <input type="range" id="price-range" min="0" max="" value="">
-            </aside>
-            <section class="product-listings">
-                <section id="product-list"></section>
-                <section id="product-pagination"></section>
-            </section>
-        </section>
-    </main>
-
-    <footer class="footer-container">
-      <div class="footer-group">
-        <div class="footer-content-1">
-          <h3>Shop by Category</h3>
-          <ul>
-            <li><a href="html/plp.html">Men's Clothing</a></li>
-            <li><a href="html/plp.html">Women's Clothing</a></li>
-            <li><a href="html/plp.html">Jewelry</a></li>
-            <li><a href="html/plp.html">Electronics</a></li>
-          </ul>
-        </div>
-        <div class="footer-content-2">
-          <h3>Contact Us</h3>
-          <p>Email: support@example.com</p>
-          <p>Phone: +1 (514)-555-5555</p>
-        </div>
-        <div class="footer-content-3">
-          <h3>Subcribe to our Newsletter</h3>
-          <input type="email" placeholder="Your email address">
-          <button id="subscribe-button">Subscribe</button>
-        </div>
-        <div class="footer-content-4">
-          <h3>Follow Us</h3>
-          <a href="#"><img src="images/icon-facebook.png" alt="">
-          <a href="#"><img src="images/icon-twitter.png" alt="">
-          <a href="#"><img src="images/icon-instagram.png" alt="">
-        </div>
+        <label id="price-range-label" for="price-range">
+          Max Price: <span id="price-value">$0</span>
+        </label>
+        <input type="range" id="price-range" min="0" max="" value="">
+      </aside>
+      <div class="product-listings">
+        <div id="product-list"></div>
       </div>
-    </footer>
+    </div>
+  </main>
+
+  <footer class="footer-container">
+    <div class="footer-group">
+      <div class="footer-content-1">
+        <h3>Shop by Category</h3>
+        <ul>
+          <li><a href="plp.html">Men's Clothing</a></li>
+          <li><a href="plp.html">Women's Clothing</a></li>
+          <li><a href="plp.html">Jewelry</a></li>
+          <li><a href="plp.html">Electronics</a></li>
+        </ul>
+      </div>
+      <div class="footer-content-2">
+        <h3>Contact Us</h3>
+        <p>Email: support@example.com</p>
+        <p>Phone: +1 (514)-555-5555</p>
+      </div>
+      <div class="footer-content-3">
+        <h3>Subcribe to our Newsletter</h3>
+        <input type="email" placeholder="Your email address">
+        <button id="subscribe-button">Subscribe</button>
+      </div>
+      <div class="footer-content-4">
+        <h3>Follow Us</h3>
+        <a href="#"><img src="../images/icon-facebook.png" alt="">
+          <a href="#"><img src="../images/icon-twitter.png" alt="">
+            <a href="#"><img src="../images/icon-instagram.png" alt="">
+      </div>
+    </div>
+  </footer>
 </body>
 
 </html>

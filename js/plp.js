@@ -46,7 +46,7 @@ async function render() {
     document.getElementById("price-range").max = maxPrice;
 
     let filterList = clothing.filter(
-      e => (categoryFilter === "All Categories" || categoryFilter === e.category) && e.price <= maxPriceFilter);
+      e => (categoryFilter === "All Categories" || categoryFilter.toLowerCase() === e.category) && e.price <= maxPriceFilter);
 
 
     if(priceSortFilter === "Low-High") {
@@ -56,44 +56,38 @@ async function render() {
       filterList.sort((a,b) => b.price - a.price);
     }
 
-    const pagination = Math.max(1, Math.ceil(filterList.length / numPerPage));
+    // const pagination = Math.max(1, Math.ceil(filterList.length / numPerPage));
 
-    if(page > pagination) {
-      page = 1;
-    }
+    // if(page > pagination) {
+    //   page = 1;
+    // }
 
-    const slice = filterList.slice((page - 1) * numPerPage, page * numPerPage);
+    // const slice = filterList.slice((page - 1) * numPerPage, page * numPerPage);
 
     const list = document.getElementById("product-list");
     list.innerHTML = "";
 
-    slice.forEach(product => {
-      const card = document.createElement("section");
+    filterList.forEach(product => {
+      const card = document.createElement("div");
       card.className = "product-card";
       card.innerHTML = `
         <img class="product-image" src="${product.image}" alt="${product.title}.png">
-        <section class="product-info">
-          <section class="product-name">${product.title}</section>
-          <section class="product-category">${product.category}</section>
-        </section>
-        <section class="product-price">Price: $${product.price}</section>`;
+        <div class="product-info">
+          <p class="product-name">${product.title}</p>
+        </div>
+        <div class="product-price">Price: $${product.price.toFixed(2)}</div>`;
       
         card.addEventListener("click", () => getClothingDetails(product));
 
         list.appendChild(card);
     });
 
-    const pagi = document.getElementById("product-pagination");
+  //   const pagi = document.getElementById("product-pagination");
 
-  pagi.innerHTML = Array.from({ length: pagination }, (_, i) =>
-    `<button class="page-btn ${i+1 === page ? 'active' : ''}" onclick="changePage(${i+1});">
-  ${i+1}</button>`
-  ).join("");
-}
-
-function changePage(p) {
-  page = p;
-  render();
+  // pagi.innerHTML = Array.from({ length: pagination }, (_, i) =>
+  //   `<button class="page-btn ${i+1 === page ? 'active' : ''}" onclick="changePage(${i+1});">
+  // ${i+1}</button>`
+  // ).join("");
 }
 
 function getClothingDetails(product) {
@@ -102,12 +96,16 @@ function getClothingDetails(product) {
     window.location.href = "pdp.html";
 }
 
-document.getElementById("category-filter").addEventListener("change", () => {
-  page=1; render()});
-document.getElementById("price-sort").addEventListener("change", () => {
-  page=1; render()});
-document.getElementById("price-range").addEventListener("input", () => {
-  page=1; render()});
+const priceRange = document.getElementById("price-range");
+const priceValue = document.getElementById("price-value");
+
+priceRange.addEventListener("input", () => {
+    priceValue.textContent = "$" +priceRange.value;
+});
+
+document.getElementById("category-filter").addEventListener("change", () => {render()});
+document.getElementById("price-sort").addEventListener("change", () => {render()});
+document.getElementById("price-range").addEventListener("input", () => {render()});
 render();
 
 load();

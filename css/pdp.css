@@ -102,6 +102,10 @@ main {
   height: auto;
 }
 
+.carousel-card p {
+  font-size: 16px;
+}
+
 
 @keyframes spin {
     from {translate: 0;}

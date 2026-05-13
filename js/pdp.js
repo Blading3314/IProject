@@ -1,4 +1,4 @@
-async function getClothes() {
+async function getProducts() {
     try {
         const response = await fetch(
             "https://fakestoreapi.com/products"
@@ -17,14 +17,15 @@ async function getClothes() {
 async function load() {
 
     let list = JSON.parse(localStorage.getItem("list"));
+    let product = JSON.parse(localStorage.getItem("product"));
 
     if(!list) {
-        list = await getClothes();
+        list = await getProducts();
     }
 
     console.log(list);
     
-    let featuredList = list.filter(e => e.price >= 80);
+    let featuredList = list.filter(e => e.category === product.category);
 
 
     eachSlide(slides, featuredList);
@@ -59,7 +60,8 @@ function addToCarousel(slide, featuredList) {
         const card = document.createElement("section");
         card.className = "carousel-card";
         card.innerHTML = `
-            <img class="product-image" src="${product.image}" alt="${product.title}.png">`
+            <img class="product-image" src="${product.image}" alt="${product.title}.png">
+            <p>Price: $${product.price.toFixed(2)}</p>`
         card.addEventListener("click", () => getClothingDetails(product));
 
         slide.appendChild(card);
