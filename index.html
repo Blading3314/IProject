@@ -8,24 +8,8 @@
   <link type="text/css" href="/css/index.css" rel="stylesheet">
   <link type="text/css" href="/css/header.css" rel="stylesheet">
   <link type="text/css" href="/css/footer.css" rel="stylesheet">
-
-  <!-- <meta name="description" content="">
-
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-  <meta property="og:image:alt" content="">
-
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
-
-  <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#fafafa"> -->
-
   <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-  <script type="text/javascript" src="/js/index.js"></script>
+  <script type="text/javascript" src="/js/index.js" defer></script>
   <script type="text/javascript" src="/js/header.js"></script>
   <script type="text/javascript" src="/js/footer.js"></script>
 
@@ -33,134 +17,110 @@
 </head>
 
 <body>
-  <header>
-    <section class="header-left">
-      <a href="index.html" class="logo">
-        <img src="" alt="Project Logo">
-        <span>Project</span>
+  <header class="header-container">
+    <hgroup class="header-left">
+      <div class="logo"><img id="header-logo" src="/images/logo.png" alt="logo.png"></div>
+      <nav>
+        <ul>
+          <li><a href="">Home</a></li>
+          <li><a href="">Products</a></li>
+          <li><a href="">About</a></li>
+        </ul>
+      </nav>
+    </hgroup>
+    <hgroup class="header-right">
+      <input type="search" placeholder="Search products..." id="search-input" class="search-bar">
+      <button id="search-button" class="search-bar" onclick="">
+        <img class="icon-search" src="images/icon-search.png">
+      </button>
+      <div id="search-dropdown" class="search-bar"></div>
+      <a href="html/cart.html">
+       <img class="icon-cart" src="images/icon-cart.png">
+       <span id="cart-count"></span>
       </a>
-    </section>
-
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</li>
-        <li><a href="/html/plp.html">Products</a>
-        <li><a href="/html/about.html">About</li>
-      </ul>
-    </nav>
-
-    <section class="header-search">
-      <input type="search" placeholder="Search product" id="search-input">
-      <button id="searthButton">Search</button>
-      <div id="search-dropdown"></div>
-    </section>
-
-    <section class="header-right">
-      <a href="/html/cart.html">
-        <span id="card-count">0</span>
+      <a href="html/login.html">
+        <img class="icon-account" src="images/icon-account.png">
       </a>
-      <a href="/html/login.html">Login</a>
-    </section>
+    </hgroup>
   </header>
 
-  <main>
-    <section class="carousel">
-      <div class="carousel-slides">
-        <div class="carousel-group">
-          <div class="carousel-card">1</div>
-          <div class="carousel-card">2</div>
-          <div class="carousel-card">3</div>
-          <div class="carousel-card">4</div>
-          <div class="carousel-card">5</div>
-          <div class="carousel-card">6</div>
+  <main class="main-container">
+    <div class="welcome-container">
+      <div class="welcome-group">
+        <div class="welcome-content">
+          <h1>Welcome Page</h1>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+            Praesentium deleniti placeat odio vel rerum enim maxime, <br>
+            voluptatem incidunt quod aspernatur necessitatibus error <br>
+            consectetur harum repellendus officiis assumenda molestiae earum fugiat.</p>
+          <a class="shop-button" href="/html/plp.html">Shop Now &#10132;</a>
         </div>
-
-        <div aria-hidden class="carousel-group">
-          <div class="carousel-card">1</div>
-          <div class="carousel-card">2</div>
-          <div class="carousel-card">3</div>
-          <div class="carousel-card">4</div>
-          <div class="carousel-card">5</div>
-          <div class="carousel-card">6</div>
+        <div class="welcome-content">
+          <img src="images/image1.jpg">
         </div>
       </div>
-    </section>
+    </div>
 
-    <section class="categories">
-      <h2>Categories</h2>
-      <ul id="category-list">
-        <li><a href="/html/plp.html">Headwear</a></li>
-        <li><a href="/html/plp.html">Tops</a></li>
-        <li><a href="/html/plp.html">Bottoms</a></li>
-        <li><a href="/html/plp.html">Footwear</a></li>
-      </ul>
-    </section>
-
-    <section class="carousel">
-      <div class="carousel-slides">
-        <div class="carousel-group">
-          <div class="carousel-card">1</div>
-          <div class="carousel-card">2</div>
-          <div class="carousel-card">3</div>
-          <div class="carousel-card">4</div>
-          <div class="carousel-card">5</div>
-          <div class="carousel-card">6</div>
+    <div class="categories-container">
+      <h1>Categories</h1>
+      <div class="category-group">
+        <div class="categories-content">
+          <h3>Men's Clothing</h3>
+          <img src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_t.png" alt="men's jacket.png">
         </div>
-
-        <div aria-hidden class="carousel-group">
-          <div class="carousel-card">1</div>
-          <div class="carousel-card">2</div>
-          <div class="carousel-card">3</div>
-          <div class="carousel-card">4</div>
-          <div class="carousel-card">5</div>
-          <div class="carousel-card">6</div>
+        <div class="categories-content">
+          <h3>Women's Clothing</h3>
+          <img src="https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_t.png" alt="women's jacket.png">
+        </div>
+        <div class="categories-content">
+          <h3>Jewelry</h3>
+          <img src="https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_t.png" alt="diamond ring.png">
+        </div>
+        <div class="categories-content">
+          <h3>Electronics</h3>
+          <img src="https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_t.png" alt="ssd.png">
         </div>
       </div>
-    </section>
+    </div>
 
-    <section class="hero-slider">
-      <h2>Hero Slider</h2>
-      <p>Will do research an implement it later</p>
-    </section>
+    <div class="featured-products">
+      <h1>Featured Products</h1>
+      <div class="carousel-slides">
+        <div class="carousel-group"></div>
+        <div aria-hidden class="carousel-group"></div>
+      </div>
+    </div>
+
+    <footer class="footer-container">
+      <div class="footer-group">
+        <div class="footer-content-1">
+          <h3>Shop by Category</h3>
+          <ul>
+            <li><a href="html/plp.html">Men's Clothing</a></li>
+            <li><a href="html/plp.html">Women's Clothing</a></li>
+            <li><a href="html/plp.html">Jewelry</a></li>
+            <li><a href="html/plp.html">Electronics</a></li>
+          </ul>
+        </div>
+        <div class="footer-content-2">
+          <h3>Contact Us</h3>
+          <p>Email: support@example.com</p>
+          <p>Phone: +1 (514)-555-5555</p>
+        </div>
+        <div class="footer-content-3">
+          <h3>Subcribe to our Newsletter</h3>
+          <input type="email" placeholder="Your email address">
+          <button id="subscribe-button">Subscribe</button>
+        </div>
+        <div class="footer-content-4">
+          <h3>Follow Us</h3>
+          <a href="#"><img src="images/icon-facebook.png" alt="">
+          <a href="#"><img src="images/icon-twitter.png" alt="">
+          <a href="#"><img src="images/icon-instagram.png" alt="">
+        </div>
+      </div>
+    </footer>
   </main>
-
-  <footer>
-    <section class="footer-section">
-      <h4>Shop by Category</h4>
-      <ul id="footer-categories">
-        <li><a href="/html/plp.html">Headwear</a></li>
-        <li><a href="/html/plp.html">Tops</a></li>
-        <li><a href="/html/plp.html">Bottoms</a></li>
-        <li><a href="/html/plp.html">Footwear</a></li>
-      </ul>
-    </section>
-
-    <section class="footer-contact">
-      <h4>Contact Us</h4>
-      <p></p>
-      <p></p>
-    </section>
-
-    <section class="footer-newsletter">
-      <h4>Join our Newsletter</h4>
-      <input type="email" placeholder="Your email address">
-      <button>Subscribe</button>
-    </section>
-
-    <section class="footer-socials">
-      <h4>Follow Us</h4>
-      <a href="#">
-        <img src="" alt="facebook-icon">
-      </a>
-      <a href="#">
-        <img src="" alt="twitter-icon">
-      </a>
-      <a href="#">
-        <img src="" alt="instagram-icon">
-      </a>
-    </section>
-  </footer>
-
 </body>
 
 </html>

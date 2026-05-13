@@ -13,9 +13,8 @@ async function getClothes() {
     return [];
   }
 }
-
-    const numPerPage = 12;
-    let page = 1;
+const numPerPage = 12;
+let page = 1;
 
 async function render() {
 
@@ -26,8 +25,12 @@ async function render() {
     const priceSortFilter = document.getElementById("price-sort").value;
     const maxPriceFilter = document.getElementById("price-range").value;
 
+    const maxPrice = Math.max(...clothing.map(product => Math.ceil(product.price)));
+    console.log(maxPrice);
+    document.getElementById("price-range").max = maxPrice;
     let filterList = clothing.filter(
       e => (categoryFilter === "All Categories" || categoryFilter === e.category) && e.price <= maxPriceFilter);
+
 
     if(priceSortFilter === "Low-High") {
       filterList.sort((a,b) => a.price - b.price);
