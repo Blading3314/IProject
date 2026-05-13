@@ -3,9 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="../js/cart.js"></script>
+    <link rel="stylesheet" href="../css/cart.css">
+    <title>Shopping Cart</title>
 </head>
+
 <body>
-    
+    <div id="cart">
+        <h2>Shopping Cart</h1>
+
+        <table id="itemList">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody id="cartBody">
+
+            </tbody>
+        </table>
+
+        <div id="cartFooter">
+            <div class=total">
+                Total: <span id="total">$0.00</span>
+            </div>
+
+            <button id="checkout" class="checkoutBtn">
+                Proceed to Checkout
+            </button>
+        </div>
+
+    </div>
 </body>
 </html>
