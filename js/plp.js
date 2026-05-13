@@ -1,19 +1,35 @@
 async function getClothes() {
-  try {
-    const response = await fetch(
-      "https://dummyjson.com/c/a77b-d361-4639-bdc5"
-    );
+    try {
+        const response = await fetch(
+            "https://fakestoreapi.com/products"
+        );
 
-    const result = await response.json();
-    localStorage.setItem("list", JSON.stringify(result));
-    return result;
+        const result = await response.json();
+        localStorage.setItem("list", JSON.stringify(result));
+        return result;
 
-  } catch (error) {
-    console.error("Error fetching clothes:", error);
-    return [];
-  }
+    } catch (error) {
+        console.error("Error fetching clothes:", error);
+        return [];
+    }
 }
-const numPerPage = 12;
+
+async function load() {
+
+    let list = JSON.parse(localStorage.getItem("list"));
+
+    if(!list) {
+        list = await getClothes();
+    }
+
+    console.log(list);
+    
+    let featuredList = list.filter(e => e.price >= 80);
+
+
+    eachSlide(slides, featuredList);
+}
+const numPerPage = 5;
 let page = 1;
 
 async function render() {
@@ -28,6 +44,7 @@ async function render() {
     const maxPrice = Math.max(...clothing.map(product => Math.ceil(product.price)));
     console.log(maxPrice);
     document.getElementById("price-range").max = maxPrice;
+
     let filterList = clothing.filter(
       e => (categoryFilter === "All Categories" || categoryFilter === e.category) && e.price <= maxPriceFilter);
 
@@ -54,9 +71,9 @@ async function render() {
       const card = document.createElement("section");
       card.className = "product-card";
       card.innerHTML = `
-        <img class="product-image" src="" alt="${product.name}.png">
+        <img class="product-image" src="${product.image}" alt="${product.title}.png">
         <section class="product-info">
-          <section class="product-name">${product.name}</section>
+          <section class="product-name">${product.title}</section>
           <section class="product-category">${product.category}</section>
         </section>
         <section class="product-price">Price: $${product.price}</section>`;
@@ -92,3 +109,5 @@ document.getElementById("price-sort").addEventListener("change", () => {
 document.getElementById("price-range").addEventListener("input", () => {
   page=1; render()});
 render();
+
+load();

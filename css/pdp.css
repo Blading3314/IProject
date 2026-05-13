@@ -1,48 +1,77 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: #ffffff;
-    color: #000000;
-    justify-self: center;
+  margin: 0;
 }
+
 
 main {
-    width: 1200px;
-    height: 100%;
-    max-width: 100%;
-    max-height: 100vh;
-    justify-items: center;
+  max-width: 100%;
+  margin: auto;
 }
 
-.product-top {
-    display: flex;
-    justify-content: center;
-    border: 2px solid red;
+.product-container {
+  width: 100%;
+  padding: 100px 16%;
+  background: radial-gradient(white, beige);
+  border-bottom: 2px solid #802c6e;
 }
 
-.product-left {
-    width: 400px;
-    height: 400px;
+.product-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
-.product-right {
-    width: 400px;
-    height: 400px;
+.product-content {
+  flex-basis: 50%;
+  min-width: 400px;
 }
 
-.product-bottom {
-    text-align: center;
+#product-title {
+  font-size: 25px;
+  text-align: center;
+}
+
+.product-content p {
+    text-align: left;
+    padding: 10px 0;
+}
+
+.product-content img {
+  max-width: 90%;
+  padding: 50px 0;
+}
+
+.product-label {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#product-quantity {
+    margin: 0 10px;
+}
+
+/* Carousel - Recommended Products */
+
+.recommended-products {
+  width: 100%;
+  padding: 70px 8%;
+  text-align: center;
+  background: radial-gradient(white, beige);
 }
 
 .carousel-slides {
-    margin: 0px auto;
-    width: 800px;
-    border: 5px solid red;
+    margin: 100px auto;
+    width: 90%;
+    border-radius: 20px;
+    border: 8px solid #802c6e;
+    background-color: white;
     display: flex;
     overflow-x: hidden;
 }
@@ -51,22 +80,28 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1em;
-    animation: spin 10s infinite linear;
-    padding-right: 1em;
+    margin: auto;
+    gap: 20px;
+    animation: spin 15s infinite linear;
+    padding-right: 20px;
 }
 
 .carousel-card {
-    flex: 0 0 3em;
-    height: 3em;
+    flex: 0 0 5em;
+    height: 5em;
     padding: 1em;
-    background: cornflowerblue;
     font-size: 3rem;
     border-radius: .2em;
     text-align: center;
     align-content: center;
-    flex-direction: row;
+    justify-content: center;
 }
+
+.carousel-card img{
+  width: 70%;
+  height: auto;
+}
+
 
 @keyframes spin {
     from {translate: 0;}

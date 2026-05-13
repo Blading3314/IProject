@@ -16,113 +16,95 @@
 </head>
 
 <body>
-  <header>
-    <section class="header-left">
-      <a href="../index.html" class="logo">
-        <img src="" alt="Project Logo">
-        <span>Project</span>
+  <header class="header-container">
+    <hgroup class="header-left">
+      <div class="logo"><a href="index.html"><img id="header-logo" src="../images/logo.png" alt="logo.png"></a></div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="plp.html">Products</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </hgroup>
+    <hgroup class="header-right">
+      <input type="search" placeholder="Search products..." id="search-input" class="search-bar">
+      <button id="search-button" class="search-bar" onclick="">
+        <img class="icon-search" src="../images/icon-search.png">
+      </button>
+      <div id="search-dropdown" class="search-bar"></div>
+      <a href="cart.html">
+       <img class="icon-cart" src="../images/icon-cart.png">
+       <span id="cart-count"></span>
       </a>
-    </section>
-
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</li>
-        <li><a href="/html/plp.html">Products</a>
-        <li><a href="/html/about.html">About</li>
-      </ul>
-    </nav>
-
-    <section class="header-search">
-      <input type="search" placeholder="Search product" id="search-input">
-      <button id="searthButton">Search</button>
-      <div id="search-dropdown"></div>
-    </section>
-
-    <section class="header-right">
-      <a href="/html/cart.html">
-        <span id="card-count">0</span>
+      <a href="login.html">
+        <img class="icon-account" src="../images/icon-account.png">
       </a>
-      <a href="/html/login.html">Login</a>
-    </section>
+    </hgroup>
   </header>
 
-  <main>
-    <section class="product-top">
-      <section class="product-left">
+  <main class="main-container">
+    <div class="product-container">
+      <div class="product-group">
+        <div class="product-content">
         <img id="product-image" src="" alt="Product Image">
-      </section>
-
-      <section class="product-right">
-        <h1 id="product-title">Title: </h1>
-        <h4 id="product-description">Description: </h4>
-        <h4 id="product-price">Price: </h4>
-        <h4 id="product-sku">Stock: </h4>
-        <h4 id="product-availability">Availabilty: </h4>
-        <label for="product-quantity">Quantity</label>
-        <input type="number" id="product-quantity" value="1" min="1">
-        <button id="AddToCart">Add to cart</button>
-      </section>
-    </section>
-
-    <section class="product-bottom">
-      <h1 id="product-recommendation">YOU MAY ALSO LIKE</h1>
-      <div class="carousel-slides">
-        <div class="carousel-group">
-          <!-- <div class="carousel-card">1</div>
-          <div class="carousel-card">2</div>
-          <div class="carousel-card">3</div>
-          <div class="carousel-card">4</div>
-          <div class="carousel-card">5</div>
-          <div class="carousel-card">6</div> -->
         </div>
-
-        <div aria-hidden class="carousel-group">
-          <!-- <div class="carousel-card">1</div>
-          <div class="carousel-card">2</div>
-          <div class="carousel-card">3</div>
-          <div class="carousel-card">4</div>
-          <div class="carousel-card">5</div>
-          <div class="carousel-card">6</div> -->
+        <div class="product-content">
+          <label class="product-label for="product-title>Title: </label>
+          <p id="product-title"></p>
+          <label class="product-label" for="product-description">Description: </label>
+          <p id="product-description"></p>
+          <label class="product-label" for="product-price">Price: </label>
+          <p id="product-price"></p>
+          <label class="product-label" for="product-sku">Stock: </label>
+          <p id="product-sku"></p>
+          <label class="product-label" for="product-availability">Availabilty: </label>
+          <p id="product-availability"></p>
+          <label class="product-label" for="product-quantity">Quantity: </label>
+          <input type="number" id="product-quantity" value="1" min="1">
+          <button id="AddToCart">Add to cart</button>
         </div>
       </div>
+    </div>
+
+    <div class="recommended-products">
+      <h1>YOU MAY ALSO LIKE</h1>
+      <div class="carousel-slides">
+        <div class="carousel-group"></div>
+        <div aria-hidden class="carousel-group"></div>
+      </div>
+    </div>
   </main>
 
-  <footer>
-    <section class="footer-section">
-      <h4>Shop by Category</h4>
-      <ul id="footer-categories">
-        <li><a href="/html/plp.html">Headwear</a></li>
-        <li><a href="/html/plp.html">Tops</a></li>
-        <li><a href="/html/plp.html">Bottoms</a></li>
-        <li><a href="/html/plp.html">Footwear</a></li>
-      </ul>
-    </section>
-
-    <section class="footer-contact">
-      <h4>Contact Us</h4>
-      <p></p>
-      <p></p>
-    </section>
-
-    <section class="footer-newsletter">
-      <h4>Join our Newsletter</h4>
-      <input type="email" placeholder="Your email address">
-      <button>Subscribe</button>
-    </section>
-
-    <section class="footer-socials">
-      <h4>Follow Us</h4>
-      <a href="#">
-        <img src="" alt="facebook-icon">
-      </a>
-      <a href="#">
-        <img src="" alt="twitter-icon">
-      </a>
-      <a href="#">
-        <img src="" alt="instagram-icon">
-      </a>
-    </section>
-  </footer>
+<footer class="footer-container">
+      <div class="footer-group">
+        <div class="footer-content-1">
+          <h3>Shop by Category</h3>
+          <ul>
+            <li><a href="plp.html">Men's Clothing</a></li>
+            <li><a href="plp.html">Women's Clothing</a></li>
+            <li><a href="plp.html">Jewelry</a></li>
+            <li><a href="plp.html">Electronics</a></li>
+          </ul>
+        </div>
+        <div class="footer-content-2">
+          <h3>Contact Us</h3>
+          <p>Email: support@example.com</p>
+          <p>Phone: +1 (514)-555-5555</p>
+        </div>
+        <div class="footer-content-3">
+          <h3>Subcribe to our Newsletter</h3>
+          <input type="email" placeholder="Your email address">
+          <button id="subscribe-button">Subscribe</button>
+        </div>
+        <div class="footer-content-4">
+          <h3>Follow Us</h3>
+          <a href="#"><img src="../images/icon-facebook.png" alt="">
+          <a href="#"><img src="../images/icon-twitter.png" alt="">
+          <a href="#"><img src="../images/icon-instagram.png" alt="">
+        </div>
+      </div>
+    </footer>
 </body>
 
 </html>

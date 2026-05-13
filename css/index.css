@@ -103,7 +103,7 @@ body {
     margin: 100px auto;
     width: 90%;
     border-radius: 20px;
-    border: 5px solid #802c6e;
+    border: 8px solid #802c6e;
     background-color: white;
     display: flex;
     overflow-x: hidden;
@@ -113,9 +113,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1em;
-    animation: spin 20s infinite linear;
-    padding-right: 1em;
+    margin: auto;
+    gap: 20px;
+    animation: spin 15s infinite linear;
+    padding-right: 20px;
 }
 
 .carousel-card {
@@ -126,6 +127,7 @@ body {
     border-radius: .2em;
     text-align: center;
     align-content: center;
+    justify-content: center;
 }
 
 .carousel-card img{

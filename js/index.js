@@ -54,8 +54,3 @@ function getClothingDetails(product) {
 }
 
 load();
-
-    // <section class="product-info">
-    //     <section class="product-name">${product.title}</section>
-    //     <section class="product-category">${product.category}</section>
-    // </section>
