@@ -55,6 +55,10 @@ function renderProfile(profile) {
 }
 
 $(document).ready(function () {
+    if(!document.cookie.includes("token=")) {
+        window.location.href = "login.html";
+        return;
+    }
     renderProfile(getProfile());
 
     $("#profile-form").on("submit", function (e) {

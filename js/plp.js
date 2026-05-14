@@ -65,13 +65,13 @@ function render(products) {
           <img class="product-image" src="${p.image}" alt="${p.title}.png">
         </div>
         <div class="product-right>
-          <label class="product-label" for="product-name">Title: </label>
-          <p class="product-name">${p.title}</p>
-          <label class="product-label" for="product-price">Price: </label>
-          <p class="product-price">$${p.price.toFixed(2)}</p>
+          <br>
+          <p class="product-text"><b>Title:</b> ${p.title}</p>
+          <br>
+          <p class="product-text"><b>Price:</b> $${p.price.toFixed(2)}</p>
         </div>`);
     
-    card.on("click", function () {
+    $(card).on("click", function () {
       setClothingDetails(p);
     });
 

@@ -91,12 +91,16 @@ function displayProduct(product) {
     const pDescription = $("#product-description");
     const pPrice = $("#product-price");
     const pStock = $("#product-sku");
+    const pReview = $("#product-reviews");
     const pAvailability = $("#product-availability");
     var availabilityString = "";
 
     pImage.attr("src", product.image);
     pTitle.text(pTitle.text() + product.title);
     pDescription.text(pDescription.text() + product.description)
+    for(var i = 0; i < product.rating.rate; i++) {
+        pReview.text(pReview.text() + "★");
+    }
     pPrice.text(pPrice.text() + "$" + product.price.toFixed(2));
     pStock.text(pStock.text() + product.rating.count)
 

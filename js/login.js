@@ -1,9 +1,13 @@
 
 $(document).ready(function () {
+    if(document.cookie.includes("token=")) {
+        window.location.href = "profile.html";
+    }
+    
     $("#login-form").on("submit", async function (e) {
         e.preventDefault();
 
-         let email = $("#email").val().trim();
+        let email = $("#email").val().trim();
         let password = $("#password").val().trim();
 
          $("#login-message")

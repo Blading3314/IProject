@@ -25,7 +25,9 @@ $(document).ready(function () {
             if (results.length > 0) {
                 searchDropdown.empty();
                 results.forEach(p => {
-                    const item = $("<div/>").addClass("search-item").text(p.title);
+                    const item = $("<div/>")
+                        .addClass("search-item")
+                        .text(p.title);
 
                     item.on("click", function () {
                         setClothingDetails(p);
@@ -48,8 +50,21 @@ $(document).ready(function () {
         const cart = localStorage.getItem("cart");
         updateCartCount();
 
-        const user = localStorage.getItem("user");
-        userAccount(user);
+        $("#header-cart").on("click", function() {
+            if(document.cookie.includes("token=")) {
+                $("#header-cart").attr("href", "cart.html")
+            } else {
+                $("#header-cart").attr("href", "login.html")
+            }
+        })
+
+        $("#user-account").on("click", function() {
+            if(document.cookie.includes("token=")) {
+                $("#user-account").attr("href", "profile.html")
+            } else {
+                $("#user-account").attr("href", "login.html")
+            }
+        })
     });
 })
 
@@ -68,10 +83,4 @@ window.updateCartCount = function() {
     });
     
     $("#cart-count").text(totalQuantity);
-}
-
-function userAccount(user) {
-    if(!user) {
-        $("#user-account").attr("href", "register.html");
-    }
 }
