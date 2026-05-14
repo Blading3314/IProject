@@ -1,125 +1,140 @@
 $(document).ready(function () {
 
-    let grandTotal = 0;
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    let cart = [];
+    displayCart();
 
-    let quantity = 1;
-    let itemTotal = 0;
+    // DISPLAY CART
+    function displayCart() {
 
-    $.ajax({
-        url: "https://fakestoreapi.com/products",
-        method: "GET",
+        $("#cartBody").empty();
 
-        success: function (products) {
+        let grandTotal = 0;
 
-            const cartProducts = products.slice(0, 5);
+        // EMPTY CART
+        if (cart.length === 0) {
 
-            cartProducts.forEach(product => {
+            $("#cartBody").append(`
 
-                itemTotal = quantity * product.price;
-                grandTotal += itemTotal;
+                <tr>
+                    <td colspan="5">
+                        Your cart is empty
+                    </td>
+                </tr>
 
-                cart.push({
-                    id: product.id,
-                    title: product.title,
-                    price: product.price,
-                    image: product.image,
-                    category: product.category,
-                    quantity: quantity
-                });
+            `);
 
-                $("#cartBody").append(`
+            $("#total").text("$0.00");
 
-                    <tr data-id="${product.id}">
+            return;
+        }
 
-                        <td>
-                            <div class="product">
+        // DISPLAY ITEMS
+        cart.forEach((product, index) => {
 
-                                <img src="${product.image}" 
-                                     alt="${product.title}">
+            const quantity = product.quantity || 1;
 
-                                <div>
+            const itemTotal = quantity * product.price;
 
-                                    <div class="product-name">
-                                        ${product.title}
-                                    </div>
+            grandTotal += itemTotal;
 
-                                    <small>
-                                        ${product.category}
-                                    </small>
+            $("#cartBody").append(`
 
+                <tr data-index="${index}">
+
+                    <td>
+
+                        <div class="product">
+
+                            <img 
+                                src="${product.image}" 
+                                alt="${product.title}"
+                            >
+
+                            <div>
+
+                                <div class="product-name">
+                                    ${product.title}
                                 </div>
 
+                                <small>
+                                    ${product.category}
+                                </small>
+
                             </div>
-                        </td>
 
-                        <td class="price">
-                            $${product.price.toFixed(2)}
-                        </td>
+                        </div>
 
-                        <td>
-                            <input 
-                                type="number"
-                                class="quantity"
-                                min="1"
-                                value="1"
-                                data-price="${product.price}"
-                            >
-                        </td>
+                    </td>
 
-                        <td class="item-total">
-                            $${itemTotal.toFixed(2)}
-                        </td>
+                    <td class="price">
+                        $${product.price.toFixed(2)}
+                    </td>
 
-                        <td>
-                            <button class="remove-btn">
-                                Remove
-                            </button>
-                        </td>
+                    <td>
 
-                    </tr>
+                        <input 
+                            type="number"
+                            class="quantity"
+                            min="1"
+                            value="${quantity}"
+                        >
 
-                `);
-            });
+                    </td>
 
-            updateGrandTotal();
+                    <td class="item-total">
+                        $${itemTotal.toFixed(2)}
+                    </td>
 
-            saveCart();
-        },
+                    <td>
 
-        error: function () {
+                        <button class="remove-btn">
+                            Remove
+                        </button>
 
-            console.log("Failed to fetch products");
+                    </td>
 
-        }
-    });
+                </tr>
+
+            `);
+
+        });
+
+        $("#total")
+            .text(`$${grandTotal.toFixed(2)}`);
+    }
 
     // UPDATE QUANTITY
     $(document).on("input", ".quantity", function () {
 
         const row = $(this).closest("tr");
 
-        const id = row.data("id");
+        const id = row.data("index");
 
-        const quantity = parseInt($(this).val());
+        let quantity = parseInt($(this).val());
 
-        const price = parseFloat($(this).data("price"));
+        if (quantity === "") {
+            return;
+        }
+
+        if (isNaN(quantity) || quantity < 1) {
+            quantity = 1;
+        }
+
+        const price = cart[id].price;
 
         const itemTotal = quantity * price;
 
         row.find(".item-total")
             .text(`$${itemTotal.toFixed(2)}`);
 
-        const item = cart.find(i => i.id === id);
-        
-        if (item) {
-            item.quantity = quantity;
-        }
+        cart[id].quantity = quantity;
 
         recalculateTotal();
 
         saveCart();
+
+        updateCartCount();
     });
 
     // REMOVE ITEM
@@ -127,16 +142,19 @@ $(document).ready(function () {
 
         const row = $(this).closest("tr");
 
-        const id = row.data("id");
+        const id = row.data("index");
 
         $(this).closest("tr").remove();
 
-        cart = cart.filter(i => i.id !== id);
+        cart.splice(id, 1);
+
         row.remove();
 
         recalculateTotal();
 
         saveCart();
+
+        updateCartCount();
     });
 
     // RECALCULATE GRAND TOTAL

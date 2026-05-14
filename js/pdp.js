@@ -17,16 +17,36 @@ $(document).ready(function () {
             appendToClass($(".carousel-group"), data);
 
             $("#cart-button").on("click", function () {
-                const amount = parseInt($("#product-quantity").val(), 10) || 0;
+                let amount = parseInt($("#product-quantity").val(), 10) || 0;
+
+                if (amount <= 0 || isNaN(amount)) {
+                    alert("Please enter a valid quantity.");
+                    return;
+                }
+
                 let cart = localStorage.getItem("cart");
 
                 cart = cart ? JSON.parse(cart) : [];
 
-                for (var i = 0; i < amount; i++) {
-                    cart.push(product);
+                const existingItem = cart.find(item => item.id === product.id);
+
+                if (existingItem) {
+                    existingItem.quantity += amount;
+                } 
+                else {
+                    const newItem = {
+                        id: product.id,
+                        title: product.title,
+                        price: product.price,
+                        image: product.image,
+                        category: product.category,
+                        quantity: amount
+                    };
+                    cart.push(newItem);
                 }
 
                 localStorage.setItem("cart", JSON.stringify(cart));
+                updateCartCount();
                 console.log(cart);
             });
         },

@@ -6,6 +6,8 @@ $(document).ready(function () {
         alert("Order confirmed!");
 
         localStorage.removeItem("cart");
+        updateCartCount();
+        
         localStorage.removeItem("order");
     });
 });

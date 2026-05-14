@@ -46,7 +46,7 @@ $(document).ready(function () {
         })
 
         const cart = localStorage.getItem("cart");
-        inCart(cart);
+        updateCartCount();
 
         const user = localStorage.getItem("user");
         userAccount(user);
@@ -58,12 +58,16 @@ function setClothingDetails(product) {
     window.location.href = "pdp.html";
 }
 
-function inCart(cart) {
-    if(!cart) {
-        $("#cart-count").text("0");
-    } else {
-        $("#cart-count").text(JSON.parse(cart).length);
-    }
+window.updateCartCount = function() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let totalQuantity = 0;
+
+    cart.forEach(item => {
+        totalQuantity += item.quantity || 1;
+    });
+    
+    $("#cart-count").text(totalQuantity);
 }
 
 function userAccount(user) {
