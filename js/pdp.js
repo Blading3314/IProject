@@ -21,6 +21,20 @@ $(document).ready(function () {
             console.log("Error", error)
         }
     })
+
+    $("#cart-button").on("click", function () {
+        const amount = parseInt($("#product-quantity").val(), 10) || 0;
+        let cart = localStorage.getItem("cart");
+
+        cart = cart ? JSON.parse(cart) : [];
+
+        for(var i = 0; i < amount; i++) {
+            cart.push(product);
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        console.log(cart);
+    });
 });
 
 function appendToClass(classes, list) {
