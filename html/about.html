@@ -1,21 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link type="text/css" href="../css/about.css" rel="stylesheet">
     <link type="text/css" href="../css/header.css" rel="stylesheet">
     <link type="text/css" href="../css/footer.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="../js/about.js" defer></script>
     <script type="text/javascript" src="../js/header.js"></script>
     <script type="text/javascript" src="../js/footer.js"></script>
 </head>
+
 <body>
     <header id="header-container"></header>
 
     <main id="main-container">
+        <div class="about-container">
+            <div class="about-group">
+                <div class="about-left">
+                    <h1>About Us</h1>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. <br>
+                        Fugiat, facilis! Iure magni, odio praesentium corporis nihil perspiciatis eaque, <br>
+                        cum corrupti ipsam, sint suscipit cumque alias omnis saepe tempora? Numquam, animi!</p>
+                </div>
+                <div class="about-right">
+                    <img id="about-image" src="../images/about-us.jpg" alt="office-meeting.png">
+                </div>
+            </div>
+        </div>
+        <div class="contact-us-container">
+            <h2>Contact Us</h2>
+            <label><b>Email:</b> support.iproject@email.com</label>
+            <label><b>Phone:</b> +1 (514)-555-5555</label>
+            <form id="contact-us-form">
+                <label for="contact-name">Name</label>
+                <input type="text" placeholder="Your name" required>
+
+                <label for="contact-email">Email</label>
+                <input type="text" placeholder="Your email" required>
+
+                <label for="contact-message">Message</label>
+                <textarea id="message-textarea" type="text" placeholder="Your message" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
     </main>
 
     <footer id="footer-container"></footer>
 </body>
+
 </html>
