@@ -3,9 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Checkout</title>
+
+    <link rel="stylesheet" href="../css/checkout.css">
 </head>
 <body>
-    
+
+    <div class="checkoutContainer">
+
+        <h1>Checkout</h1>
+
+        <div class="checkoutGrid">
+
+            <div class="checkoutForm">
+
+                <h2>Shipping Information</h2>
+
+                <form>
+
+                    <div class="inputGroup">
+                        <label>Full Name</label>
+                        <input type="text">
+                    </div>
+
+                    <div class="inputGroup">
+                        <label>Email Address</label>
+                        <input type="email">
+                    </div>
+
+                    <div class="inputGroup">
+                        <label>Phone Number</label>
+                        <input type="text">
+                    </div>
+
+                    <div class="inputGroup">
+                        <label>Address</label>
+                        <input type="text">
+                    </div>
+
+                    <div class="row">
+
+                        <div class="inputGroup">
+                            <label>City</label>
+                            <input type="text">
+                        </div>
+
+                        <div class="inputGroup">
+                            <label>Postal Code</label>
+                            <input type="text">
+                        </div>
+
+                    </div>
+
+                    <div class="input-group">
+                        <label>Country</label>
+
+                        <select>
+                            <option>Canada</option>
+                            <option>United States</option>
+                            <option>United Kingdom</option>
+                        </select>
+                    </div>
+
+                </form>
+
+            </div>
+
+            <div class="orderSummary">
+
+                <h2>Order Summary</h2>
+
+                <div class="summaryList">
+
+                </div>
+
+                <button class="placeOrderbtn">
+                    Place Order
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </body>
 </html>
