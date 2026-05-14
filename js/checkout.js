@@ -1,4 +1,9 @@
 $(document).ready(function () {
+    if (!isLoggedIn()) {
+        window.location.href = "login.html";
+        return;
+    }
+
     displayCartItems();
 
     $(".placeOrderBtn").click(function (e) {
@@ -27,6 +32,25 @@ $(document).ready(function () {
         }
     });
 });
+
+function getCookie(name) {
+    const cookies = document.cookie.split("; ");
+
+    for (let i = 0; i < cookies.length; i++) {
+        const parts = cookies[i].split("=");
+
+        if (parts[0] === name) {
+            return decodeURIComponent(parts.slice(1).join("="));
+        }
+    }
+
+    return "";
+}
+
+function isLoggedIn() {
+    // Checkout is only available when the login token cookie exists.
+    return getCookie("token") !== "";
+}
 
 // FETCH CART ITEMS FROM LOCAL STORAGE
 function getCartItems() {
