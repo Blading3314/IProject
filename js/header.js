@@ -48,8 +48,7 @@ $(document).ready(function () {
         const cart = localStorage.getItem("cart");
         updateCartCount();
 
-        const user = localStorage.getItem("user");
-        userAccount(user);
+        userAccount();
     });
 })
 
@@ -66,12 +65,31 @@ window.updateCartCount = function() {
     cart.forEach(item => {
         totalQuantity += item.quantity || 1;
     });
-    
+
     $("#cart-count").text(totalQuantity);
 }
 
-function userAccount(user) {
-    if(!user) {
-        $("#user-account").attr("href", "register.html");
+function getCookie(name) {
+    const cookies = document.cookie.split("; ");
+
+    for (let i = 0; i < cookies.length; i++) {
+        const parts = cookies[i].split("=");
+
+        if (parts[0] === name) {
+            return decodeURIComponent(parts.slice(1).join("="));
+        }
+    }
+
+    return "";
+}
+
+function userAccount() {
+    // The account icon goes to profile only while a login token exists.
+    const token = getCookie("token");
+
+    if(!token) {
+        $("#user-account").attr("href", "login.html");
+    } else {
+        $("#user-account").attr("href", "profile.html");
     }
 }
