@@ -18,7 +18,8 @@ main {
   width: 100%;
   padding: 100px 16%;
   background: radial-gradient(white, beige);
-  border-bottom: 2px solid #802c6e;
+  border: 1px solid black;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.3);
 }
 
 .product-group {
@@ -98,8 +99,14 @@ main {
 }
 
 .carousel-card img{
-  width: 70%;
+  width: 60%;
   height: auto;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.carousel-card img:hover {
+  transform: translateY(-5px);
 }
 
 .carousel-card p {

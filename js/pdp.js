@@ -1,71 +1,49 @@
-async function getProducts() {
-    try {
-        const response = await fetch(
-            "https://fakestoreapi.com/products"
+$(document).ready(function () {
+    const product = JSON.parse(localStorage.getItem("product"));
+    $(".carousel-group").html("<h2>Loading carousel...</h2>");
+
+    $.ajax({
+        url: "https://fakestoreapi.com/products",
+        method: "GET",
+        success: function (data) {
+            if(!product) {
+                setTimeout(function () {
+                window.location.href = "plp.html";
+                }, 600);
+            }
+            displayProduct(product);
+            $(".carousel-group").empty();
+
+            appendToClass($(".carousel-group"), data);
+        },
+
+        error: function(xhr, status, error) {
+            console.log("Error", error)
+        }
+    })
+});
+
+function appendToClass(classes, list) {
+    $(classes).each(function () {
+        addToCarousel(this, list)
+    });
+}
+
+function addToCarousel(element, list) {
+    list.forEach(product => {
+        const card = $(`
+        <div class="carousel-card">
+            <img class="product-image" src="${product.image}" alt="${product.title}.png">
+        </div>`
         );
 
-        const result = await response.json();
-        localStorage.setItem("list", JSON.stringify(result));
-        return result;
+        card.on("click", function () {
+            localStorage.setItem("product", JSON.stringify(product));
+            window.location.href = "/html/pdp.html";
+        });
 
-    } catch (error) {
-        console.error("Error fetching clothes:", error);
-        return [];
-    }
-}
-
-async function load() {
-
-    let list = JSON.parse(localStorage.getItem("list"));
-    let product = JSON.parse(localStorage.getItem("product"));
-
-    if(!list) {
-        list = await getProducts();
-    }
-
-    console.log(list);
-    
-    let featuredList = list.filter(e => e.category === product.category);
-
-
-    eachSlide(slides, featuredList);
-}
-
-const product = JSON.parse(localStorage.getItem("product"));
-
-function displayProduct(product) {
-    const pImage = document.querySelector("#product-image");
-    const pTitle = document.getElementById("product-title");
-    const pDescription = document.getElementById("product-description");
-    const pPrice = document.getElementById("product-price");
-    const pStock = document.getElementById("product-sku");
-    const pAvailability = document.getElementById("product-availability");
-
-    pImage.src = product.image;
-    pTitle.textContent += product.title;
-    pDescription.textContent += product.description;
-    pPrice.textContent += "$" +product.price.toFixed(2);
-    pStock.textContent += product.rating.count;
-    product.rating.count > 0 ? pAvailability.textContent += "In Stock" : pAvailability.textContent += "Out of Stock"
-}
-
-const slides = document.getElementsByClassName("carousel-group");
-
-function eachSlide(div, featuredList) {
-    Array.from(div).forEach(group => addToCarousel(group, featuredList));
-}
-
-function addToCarousel(slide, featuredList) {
-    featuredList.forEach(product => {
-        const card = document.createElement("section");
-        card.className = "carousel-card";
-        card.innerHTML = `
-            <img class="product-image" src="${product.image}" alt="${product.title}.png">
-            <p>Price: $${product.price.toFixed(2)}</p>`
-        card.addEventListener("click", () => getClothingDetails(product));
-
-        slide.appendChild(card);
-    });
+        $(element).append(card);
+    })
 }
 
 function getClothingDetails(product) {
@@ -73,5 +51,21 @@ function getClothingDetails(product) {
     window.location.href = "/html/pdp.html";
 }
 
-load();
-displayProduct(product);
+function displayProduct(product) {
+    const pImage = $("#product-image");
+    const pTitle = $("#product-title");
+    const pDescription = $("#product-description");
+    const pPrice = $("#product-price");
+    const pStock = $("#product-sku");
+    const pAvailability = $("#product-availability");
+    var availabilityString = "";
+    
+    pImage.attr("src", product.image);
+    pTitle.text(pTitle.text() + product.title);
+    pDescription.text(pDescription.text() +product.description)
+    pPrice.text(pPrice.text() +"$" +product.price.toFixed(2));
+    pStock.text(pStock.text() + product.rating.count)
+
+    product.rating.count > 0 ?  availabilityString = "In Stock" : availabilityString ="Out of Stock";
+    pAvailability.text(availabilityString);
+}

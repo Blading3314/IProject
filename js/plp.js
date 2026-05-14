@@ -61,21 +61,25 @@ function render(products) {
   filtered.forEach(p => {
     const card = $(`
       <div class="product-card">
-        <img class="product-image" src="${p.image}" alt="${p.title}.png">
-      <label class="product-label" for="product-name">Title: </label>
-      <p class="product-name">${p.title}</p>
-      <label class="product-label" for="product-price">Price: </label>
-      <p class="product-price">$${p.price.toFixed(2)}</p>`);
+        <div class="product-left">
+          <img class="product-image" src="${p.image}" alt="${p.title}.png">
+        </div>
+        <div class="product-right>
+          <label class="product-label" for="product-name">Title: </label>
+          <p class="product-name">${p.title}</p>
+          <label class="product-label" for="product-price">Price: </label>
+          <p class="product-price">$${p.price.toFixed(2)}</p>
+        </div>`);
     
     card.on("click", function () {
-      getClothingDetails(p);
+      setClothingDetails(p);
     });
 
     list.append(card);
   });
 }
 
-function getClothingDetails(product) {
+function setClothingDetails(product) {
     localStorage.setItem("product", JSON.stringify(product));
     window.location.href = "pdp.html";
 }
