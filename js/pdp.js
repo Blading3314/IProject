@@ -6,35 +6,35 @@ $(document).ready(function () {
         url: "https://fakestoreapi.com/products",
         method: "GET",
         success: function (data) {
-            if(!product) {
+            if (!product) {
                 setTimeout(function () {
-                window.location.href = "plp.html";
+                    window.location.href = "plp.html";
                 }, 600);
             }
             displayProduct(product);
             $(".carousel-group").empty();
 
             appendToClass($(".carousel-group"), data);
+
+            $("#cart-button").on("click", function () {
+                const amount = parseInt($("#product-quantity").val(), 10) || 0;
+                let cart = localStorage.getItem("cart");
+
+                cart = cart ? JSON.parse(cart) : [];
+
+                for (var i = 0; i < amount; i++) {
+                    cart.push(product);
+                }
+
+                localStorage.setItem("cart", JSON.stringify(cart));
+                console.log(cart);
+            });
         },
 
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
             console.log("Error", error)
         }
     })
-
-    $("#cart-button").on("click", function () {
-        const amount = parseInt($("#product-quantity").val(), 10) || 0;
-        let cart = localStorage.getItem("cart");
-
-        cart = cart ? JSON.parse(cart) : [];
-
-        for(var i = 0; i < amount; i++) {
-            cart.push(product);
-        }
-
-        localStorage.setItem("cart", JSON.stringify(cart));
-        console.log(cart);
-    });
 });
 
 function appendToClass(classes, list) {
@@ -73,13 +73,13 @@ function displayProduct(product) {
     const pStock = $("#product-sku");
     const pAvailability = $("#product-availability");
     var availabilityString = "";
-    
+
     pImage.attr("src", product.image);
     pTitle.text(pTitle.text() + product.title);
-    pDescription.text(pDescription.text() +product.description)
-    pPrice.text(pPrice.text() +"$" +product.price.toFixed(2));
+    pDescription.text(pDescription.text() + product.description)
+    pPrice.text(pPrice.text() + "$" + product.price.toFixed(2));
     pStock.text(pStock.text() + product.rating.count)
 
-    product.rating.count > 0 ?  availabilityString = "In Stock" : availabilityString ="Out of Stock";
+    product.rating.count > 0 ? availabilityString = "In Stock" : availabilityString = "Out of Stock";
     pAvailability.text(availabilityString);
 }
