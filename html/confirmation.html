@@ -3,10 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="../js/confirmation.js"></script>
+    <script src="../js/header.js"></script>
+    <script src="../js/footer.js"></script>
+    <link rel="stylesheet" href="../css/confirmation.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <title>Order Confirmation</title>
 </head>
+
 <body>
     <header id="header-container"></header>
+
+    <div class="confirmationContainer">
+        <h1>Thank you for your order!</h1>
+
+        <div class="orderNumber">
+           Order #: <span id="orderNum"></span>
+        </div>
+
+        <div class="customerBox" id="customerInfo"></div>
+        
+        <div class="orderSummary">
+            <h2>Order Summary</h2>
+
+            <div class="orderItems"></div>  
+
+            <div class="orderTotal">
+                Total: <span id="totalPaid">$0.00</span>
+            </div>
+
+        </div>
+
+        <div class="actions">
+           <a href="index.html" class="returnHome">
+                ← Return to Home
+            </a>
+
+            <button id="confirmBtn">
+                Confirm Order
+            </button>
+        </div>
+
+    </div>
 
     <footer id="footer-container"></footer>
 </body>
