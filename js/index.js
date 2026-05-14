@@ -1,56 +1,40 @@
-async function getClothes() {
-    try {
-        const response = await fetch(
-            "https://fakestoreapi.com/products"
+$(document).ready(function () {
+    $(".carousel-group").html("<h2>Loading carousel...</h2>");
+
+    $.ajax({
+        url: "https://fakestoreapi.com/products",
+        method: "GET",
+        success: function (data) {
+            $(".carousel-group").empty();
+
+            appendToClass($(".carousel-group"), data)
+        },
+
+        error: function (xhr, status, error) {
+            console.log("Error", error)
+        }
+    });
+});
+
+function appendToClass(classes, list) {
+    $(classes).each(function () {
+        addToCarousel(this, list)
+    });
+};
+
+function addToCarousel(element, list) {
+    list.forEach(product => {
+        const card = $(`
+        <div class="carousel-card">
+            <img class="product-image" src="${product.image}" alt="${product.title}.png">
+        </div>`
         );
 
-        const result = await response.json();
-        localStorage.setItem("list", JSON.stringify(result));
-        return result;
+        card.on("click", function () {
+            localStorage.setItem("product", JSON.stringify(product));
+            window.location.href = "/html/pdp.html";
+        });
 
-    } catch (error) {
-        console.error("Error fetching clothes:", error);
-        return [];
-    }
+        $(element).append(card);
+    })
 }
-
-const slides = document.getElementsByClassName("carousel-group");
-
-async function load() {
-
-    let list = JSON.parse(localStorage.getItem("list"));
-
-    if(!list) {
-        list = await getClothes();
-    }
-
-    console.log(list);
-    
-    let featuredList = list.filter(e => e.price >= 80);
-
-
-    eachSlide(slides, featuredList);
-}
-
-function eachSlide(div, featuredList) {
-    Array.from(div).forEach(group => addToCarousel(group, featuredList));
-}
-
-function addToCarousel(slide, featuredList) {
-    featuredList.forEach(product => {
-        const card = document.createElement("section");
-        card.className = "carousel-card";
-        card.innerHTML = `
-            <img class="product-image" src="${product.image}" alt="${product.title}.png">`
-        card.addEventListener("click", () => getClothingDetails(product));
-
-        slide.appendChild(card);
-    });
-}
-
-function getClothingDetails(product) {
-    localStorage.setItem("product", JSON.stringify(product));
-    window.location.href = "/html/pdp.html";
-}
-
-load();
