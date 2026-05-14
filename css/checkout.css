@@ -1,0 +1,172 @@
+body {
+    margin: 0;
+    background: #f4f6f9;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+}
+
+.checkoutContainer {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.checkoutContainer h1 {
+    margin-bottom: 30px;
+    font-size: 32px;
+}
+
+.checkoutGrid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 25px;
+    align-items: start;
+}
+
+/* LEFT SIDE */
+.checkoutForm {
+    background: white;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.checkoutForm h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.nameRow {
+    display: flex;
+    gap: 20px;
+}
+
+.inputGroup{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.inputGroup label{
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.inputGroup input, select {
+    padding: 14px;
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+    font-size: 15px;
+    transition: 0.2s;
+    outline: none;
+}
+
+.inputGroup input:focus, select:focus {
+    border-color: #111;
+}
+
+/* ERROR STATE */
+.error {
+    border: 2px solid #e53935 !important;
+    background: #fff5f5;
+}
+
+/* RIGHT SIDE */
+.orderSummary {
+    background: white;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 20px;
+}
+
+.orderSummary h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.summaryList {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.summaryItem {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #eee;
+}
+
+.summaryProduct {
+    display: flex;
+    gap: 14px;
+}
+
+.summaryProduct img {
+    width: 80px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    background: #f2f2f2;
+}
+
+.summaryTitle {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.summaryQty {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #666;
+}
+
+.summaryPrice {
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.summaryTotal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #ddd;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.placeOrderBtn {
+    width: 100%;
+    margin-top: 25px;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    background: #111;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.placeOrderbtn:hover {
+    background: #333;
+}
+
+/* ERROR TEXT */
+.error{
+    border:2px solid red;
+}
+
+.errorText{
+    color:red;
+    font-size:13px;
+    margin-top:5px;
+    display:block;
+}

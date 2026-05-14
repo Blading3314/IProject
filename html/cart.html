@@ -5,13 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="../js/cart.js"></script>
+    <script src="../js/header.js"></script>
+    <script src="../js/footer.js"></script>
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/cart.css">
     <title>Shopping Cart</title>
 </head>
 
 <body>
+    <header id="header-container"></header>
+    
     <div id="cart">
-        <h2>Shopping Cart</h1>
+        <a href="plp.html" class="continueShopping">
+            ← Continue Shopping
+        </a>
+
+        <h2>Shopping Cart</h2>
 
         <table id="itemList">
             <thead>
@@ -30,7 +40,7 @@
         </table>
 
         <div id="cartFooter">
-            <div class=total">
+            <div class="total">
                 Total: <span id="total">$0.00</span>
             </div>
 
@@ -40,5 +50,7 @@
         </div>
 
     </div>
+
+    <footer id="footer-container"></footer>
 </body>
 </html>
