@@ -11,20 +11,67 @@
 }
 
 .footer-group {
-  flex: 1;
+  flex: 1 1 20%;
   display: inline-flex;
   justify-content: space-between;
   align-items: center;
-  flex-basis: 25%;
+  padding: 20px;
+  gap: 40px;
 }
 
-footer ul {
+footer h3 {
   list-style: none;
-  padding-top: 20px;
+  padding: 10px 0;
   text-align: center;
+  
+}
+
+footer ul li {
+  list-style: none;
+  text-align: right;
 }
 
 footer a {
   color: white;
   text-decoration: none;
 }
+
+footer ul li a:hover {
+  text-decoration: underline;
+}
+
+.footer-content-3 > input {
+  width: 200px;
+  padding: 4px;
+  border-radius: 5px;
+}
+
+.footer-content-4 a img:hover {
+  transform: translateY(-5px);
+}
+
+.footer-content-3 p {
+  padding: 8px;
+  text-align: center;
+}
+
+#subscribe-button {
+  background-color: beige;
+  padding: 4px 8px;
+  border-radius: 12px;
+
+  color: #802c6e;
+  font-size: large;
+  cursor: pointer;
+}
+
+.success {
+  color: green;
+  font-size: large;
+}
+
+.error {
+  color: red;
+  font-size: large;
+}
+

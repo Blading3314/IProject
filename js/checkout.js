@@ -5,7 +5,7 @@ $(document).ready(function () {
     }
 
     let name = getCookie("profileName").split(" ");
-    let email = getCookie("profileAddress");
+    let email = getCookie("profileEmail");
     let phone = getCookie("profilePhone");
     let address = getCookie("profileAddress");
 
@@ -152,7 +152,7 @@ function validation() {
 
     const nameRegex = /^[A-Za-z\s]{2,}$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const phoneRegex = /^\d{10}$/;
+    const phoneRegex = /^(\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}$/;
 
     // CLEAR PREVIOUS ERRORS
     $(".errorText").text("");
