@@ -4,7 +4,17 @@ $(document).ready(function () {
         return;
     }
 
-    displayCartItems();
+    let name = getCookie("profileName").split(" ");
+    let email = getCookie("profileAddress");
+    let phone = getCookie("profilePhone");
+    let address = getCookie("profileAddress");
+
+    $("#firstName").val(name[0]);
+    $("#lastName").val(name[1]);
+    $("#email").val(email);
+    $("#phone").val(phone);
+    $("#address").val(address);
+
 
     $(".placeOrderBtn").click(function (e) {
         e.preventDefault();
