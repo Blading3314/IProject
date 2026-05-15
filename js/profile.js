@@ -5,6 +5,7 @@ const defaultProfile = {
     address: "123 Market Street"
 };
 
+// Saves editable profile fields in browser cookies.
 function setCookie(name, value, days) {
     let expires = "";
 
@@ -15,6 +16,11 @@ function setCookie(name, value, days) {
     }
 
     document.cookie = name + "=" + encodeURIComponent(value) + expires + "; path=/; SameSite=Lax";
+}
+
+// Removing the token is enough to log the user out.
+function deleteCookie(name) {
+    document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax";
 }
 
 function getCookie(name) {
@@ -33,7 +39,7 @@ function getCookie(name) {
 
 function getProfile() {
     return {
-      //if no cookie, return default profile
+        // Use saved cookies first, then fall back to static profile data.
         name: getCookie("profileName") || defaultProfile.name,
         email: getCookie("profileEmail") || defaultProfile.email,
         phone: getCookie("profilePhone") || defaultProfile.phone,
@@ -42,7 +48,7 @@ function getProfile() {
 }
 
 function renderProfile(profile) {
-  // fill in profile details in forms and display box
+    // Keep the display card and editable form in sync.
     $("#display-name").text(profile.name);
     $("#display-email").text(profile.email);
     $("#display-phone").text(profile.phone);
@@ -62,7 +68,7 @@ $(document).ready(function () {
     renderProfile(getProfile());
 
     $("#profile-form").on("submit", function (e) {
-        e.preventDefault(); // prevent form from submitting normally
+        e.preventDefault();
 
         const profile = {
             name: $("#name").val().trim(),
@@ -78,5 +84,10 @@ $(document).ready(function () {
 
         renderProfile(profile);
         $("#profile-message").text("Profile saved.");
+    });
+
+    $("#logout-button").on("click", function () {
+        deleteCookie("token");
+        window.location.href = "login.html";
     });
 });

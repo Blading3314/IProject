@@ -82,6 +82,23 @@ body {
     background: #672b7f;
 }
 
+#logout-button {
+    width: 100%;
+    margin-top: 12px;
+    padding: 12px;
+    border: 1px solid #802c6e;
+    border-radius: 6px;
+    background: white;
+    color: #802c6e;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#logout-button:hover {
+    background: #f6eef4;
+}
+
 #profile-message {
     margin-top: 15px;
     text-align: center;

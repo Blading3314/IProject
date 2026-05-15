@@ -81,6 +81,6 @@ window.updateCartCount = function() {
     cart.forEach(item => {
         totalQuantity += item.quantity || 1;
     });
-    
+
     $("#cart-count").text(totalQuantity);
 }

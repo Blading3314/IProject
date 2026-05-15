@@ -1,4 +1,8 @@
 $(document).ready(function () {
+    if (!isLoggedIn()) {
+        window.location.href = "login.html";
+        return;
+    }
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -193,3 +197,22 @@ $(document).ready(function () {
         window.location.href = "checkout.html";
     });
 });
+
+function getCookie(name) {
+    const cookies = document.cookie.split("; ");
+
+    for (let i = 0; i < cookies.length; i++) {
+        const parts = cookies[i].split("=");
+
+        if (parts[0] === name) {
+            return decodeURIComponent(parts.slice(1).join("="));
+        }
+    }
+
+    return "";
+}
+
+function isLoggedIn() {
+    // Cart is only available when the login token cookie exists.
+    return getCookie("token") !== "";
+}

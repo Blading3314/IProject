@@ -1,8 +1,22 @@
+// Password needs lowercase, uppercase, and a number for this demo.
 const regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/;
-const regexEmail = /^[a-zA-Z0-9][a-zA-Z0-9\_\.\-]{3,15}@\D[a-zA-Z0-9\.]{0,22}\D(?:\.com|\.ca|\.qc\.ca)$/;
+// Basic email shape: something@something.something.
+const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function setCookie(name, value, days) {
+    let expires = "";
+
+    if (days) {
+        const date = new Date();
+        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+        expires = "; expires=" + date.toUTCString();
+    }
+
+    document.cookie = name + "=" + encodeURIComponent(value) + expires + "; path=/; SameSite=Lax";
+}
 
 $(document).ready(function () {
-    $("#register-form").on("submit", function (e) {
+    $("#register-form").on("submit", async function (e) {
         e.preventDefault();
 
         let name = $("#name").val().trim();
@@ -27,21 +41,48 @@ $(document).ready(function () {
             return;
         }
 
-        let user = {
-            name: name,
-            email: email,
-            password: password
-        };
+        try {
+            // ReqRes only succeeds for known demo users, but it gives us a token response.
+            const response = await fetch("https://reqres.in/api/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "x-api-key": "free_user_3DjPZMvRqgFHwM5yuZBgRFmLUCD"
+                },
+                body: JSON.stringify({
+                    email: email,
+                    password: password
+                })
+            });
 
-        localStorage.setItem("user", JSON.stringify(user));
+            const data = await response.json();
 
-        $("#register-message")
-            .removeClass("error")
-            .addClass("success")
-            .text("Registration successful redirecting to Login Page");
+            if (!response.ok) {
+                $("#register-message").text(data.error || "Registration failed.");
+                return;
+            }
 
-        setTimeout(function () {
-            window.location.href = "login.html";
-        }, 600);
+            setCookie("token", data.token, 7);
+            setCookie("profileName", name, 7);
+            setCookie("profileEmail", email, 7);
+
+            // Store the demo user locally so login can match the registered password.
+            localStorage.setItem("user", JSON.stringify({
+                name: name,
+                email: email,
+                password: password
+            }));
+
+            $("#register-message")
+                .removeClass("error")
+                .addClass("success")
+                .text("Registration successful. Redirecting to profile.");
+
+            setTimeout(function () {
+                window.location.href = "profile.html";
+            }, 600);
+        } catch (error) {
+            $("#register-message").text("Unable to register right now.");
+        }
     });
 });
